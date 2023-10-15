@@ -1,0 +1,41 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.todo-container {
+    max-width: 300px;
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid white;
+    margin-top: 5px;
+}
+
+button.delete {
+    background-color: silver;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+li.checked {
+    text-decoration: line-through;
+}

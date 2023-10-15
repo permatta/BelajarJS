@@ -48,3 +48,35 @@
 //    console.log(isi)
 //    p.innerHTML = isi
 // })
+
+document.addEventListener('DOMContentLoaded', function () {
+    const taskInput = document.getElementById('task');
+    const addButton = document.getElementById('submit');
+    const taskList = document.getElementById('taskList');
+
+    addButton.addEventListener('click', function () {
+        const taskText = taskInput.value.trim();
+        if (taskText !== '') {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = '<input type="checkbox">' + taskText + '<button class="delete">X</button>';
+            taskList.appendChild(listItem);
+            taskInput.value = '';
+
+            const deleteButton = listItem.querySelector('.delete');
+            deleteButton.addEventListener('click', function () {
+                taskList.removeChild(listItem);
+            });
+
+            const checkbox = listItem.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', function () {
+                listItem.classList.toggle('checked', checkbox.checked);
+            });
+        }
+    });
+
+    taskInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            addButton.click();
+        }
+    });
+});
